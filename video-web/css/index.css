@@ -1,0 +1,44 @@
+.container {
+   display: flex;
+   justify-content: center; /* 水平居中 */
+   align-items: center;     /* 垂直居中 */
+}
+h2{
+	text-align: center;
+}
+div{
+	/* border: solid 1px red; */
+	margin-bottom: 6px;
+	margin-top: 10px;
+	height: 45px;
+}
+label{
+	height: 30px;
+	width: 80px;
+	display: inline-block;
+}
+.inputClass{
+	    width: 324px;
+	    height: 38px;
+}
+#verifyCode{
+	width: 160px;
+	height: 38px;
+}
+#loginBtn{
+	width: 418px;
+	height: 45px;
+
+}
+.labelClass{
+	width: 253px;
+	height: 38px;
+}
+
+#verify{
+	    width: 160px;
+	    height: 44px;
+	    display: inline-block;
+		float: right;
+}
+

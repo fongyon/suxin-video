@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>用户注册</title>
+		<!-- 引入自己的CSS文件 -->
+		<link rel="stylesheet" href="css/register.css"/>
+		<!-- 引入jquery包 -->
+		<script src="js/jquery-3.7.1.min.js"></script>
+		<!-- 引入自己的js文件 -->
+		<script src="js/index.js"></script>
+		<script src="js/register.js"></script>
+	</head>
+	<body class="container">
+		<p>
+			<form method="post" id="registerFrm" >
+				<h2>欢迎注册微视频用户</h2>
+				<div>
+					<label for="email">电子邮件</label>
+					<input class="inputClass"  type="text" id="email" name="email" placeholder="电子邮件"/>
+				</div>
+				<div>
+					<label for="verifyCode">验证码</label>
+					<input type="text" placeholder="邮件验证码" id="verifyCode" name="verifyCode"/>
+					<button type="button" id="verifyBtn">获取验证码</button>
+				</div>
+				<div>
+					<label>密码</label>
+					<input class="inputClass" type="password" placeholder="密码6到18个字符" id="pass" name="pass"/>
+				</div>
+				<div>
+					<label for="verifyPass">确认密码</label>
+					<input class="inputClass" type="password" placeholder="密码6到18个字符" id="verifyPass" name="verifyPass"/>
+				</div>
+				<div>
+					<button type="button" id="registerBtn" style="color: rgb(255,240,250);">注册</button>
+				</div>
+				<div>
+					<label>已有账号</label>
+					<span><a href="login.html">直接登录</a></span>
+				</div>
+			</form>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>用户登录</title>
+		<!-- 引入自己的CSS文件 -->
+		<link rel="stylesheet" href="css/login.css"/>
+		<!-- 引入jquery包 -->
+		<script src="js/jquery-3.7.1.min.js"></script>
+		<!-- 引入自己的js文件 -->
+		<script src="js/index.js"></script>
+		<!-- 第三方的验证码产生包 -->
+		<script src="js/gVerify.js"></script>
+		<script>
+			$(function(){
+				//验证码对象
+				var verifyCode =new GVerify({
+					id : "verify",
+					type : "number"
+				});
+				//绑定事件：登录按钮事件
+				$("#loginBtn").click(function(){
+					let code=$("#verifyCode").val();
+					let res= verifyCode.validate(code);//验证码验证
+					if(res){
+						let url=basePath+"login";
+						let data={
+							email: $("#email").val(),
+							password: $("#pass").val()
+						}
+						//ajax请求
+						$.post(url,data,function(result){
+							//判断回调返回值
+							if(result){
+								//根据errorCode判断后端返回值
+								if(result.errorCode==0){
+									//等成功后返回的口令牌
+									let token =result.data; 
+									//Cookie,sessionStorage,localStorage
+									sessionStorage.setItem("access_token",token);
+									location.href="main.html";
+								}else{
+									let mes=result.message;
+									$("#message").empty();
+									const spanObj= $("<span></span>");
+									spanObj.text(mes);
+									spanObj.addClass("errorMessage");
+									$("#message").append(spanObj);//自己定义的span节点添加到message中
+								}
+							}
+							
+						});
+						// return res;
+					}else{
+						$("#message").empty()
+						const spanObj= $("<span></span>");
+						spanObj.text("输入验证码错误！");
+						spanObj.addClass("errorMessage");
+						$("#message").append(spanObj);//自己定义的span节点添加到message中
+						// $("#verify").text("输入验证码错误！")
+						return false;
+					}
+				});
+				
+			});
+		</script>
+	</head>
+	<body class="container">
+			<form method="post" >
+				<h2>欢迎登录微视频平台</h2>
+				<div id="message">
+					
+				</div>
+				<div>
+					<label for="email">电子邮件</label>
+					<input class="inputClass" type="text" id="email" name="email" placeholder="电子邮件"/>
+				</div>
+				<div>
+					<label>密码</label>
+					<input class="inputClass" type="password" placeholder="密码6到18个字符" id="pass" name="pass"/>
+				</div>		
+				<div id="third">
+					<label for="verifyCode">验证码</label>
+					<input type="text" placeholder="验证码" id="verifyCode" name="verifyCode"/>
+					<!-- <button type="button" id="verifyBtn">获取验证码</button> -->
+					<span id="verify"></span>
+				</div>
+				<div>
+					<button type="button" id="loginBtn" style="color: rgb(255,240,250);">登录</button>
+				</div>
+				<div>
+					<label>没有账号</label>
+					<span><a href="register.html">免费注册</a></span>
+					<span><a href="retrieve.html">忘记密码</a></span>
+				</div>
+			</form>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="css/upload.css"/>
+<div class="col-md-12">
+         <div class="panel panel-success">
+             <div class="panel-body">
+                 <!-- Standar Form -->
+                 <div class="form-inline">
+                     <div class="form-group">
+                         <label for="fileupload">请选择文件:</label>
+                         <input id="fileupload" type="file" name="fileupload" accept=".mp4" multiple="" style="display:none;" />
+                         <input type='text' class="form-control" name='textfield' id='textfield' autocomplete="off" readonly="readonly" />
+                         <input id="excelImport" type="button" value="浏览" class="btn btn-success" />
+                     </div>
+                 </div>
+ 
+                 <!-- Drop Zone -->
+                 <div class="upload-drop-title">或者将文件拖拽到这里</div>
+                 <div class="upload-drop-zone" id="drop-zone">
+                     将文件拖拽到这里
+                 </div>
+                 
+                 <!-- Upload Finished -->
+                 <div class="js-upload-finished"></div>
+             </div>
+         </div>
+ </div>
+ <script src="js/upload.js"></script>
