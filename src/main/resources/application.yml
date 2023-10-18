@@ -1,0 +1,33 @@
+server:
+  port: 7070
+  servlet:
+    context-path: /video
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/micro_video?&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+  mail:
+    host: smtp.qq.com
+    username: 2601449063@qq.com
+    password: hjsnrzhndcdwdjgg
+    properties:
+      mail:
+        smtp:
+          auth=true:
+          starttls:
+            enable: true
+            required: true
+
+  redis:
+    database: 0
+    host: 192.168.8.131
+    port: 6379
+    password: 123321
+    timeout: 0
+    pool:
+      max-active: 8
+      max-idle: 8
+      min-idle: 0
+      max-wait: -1
